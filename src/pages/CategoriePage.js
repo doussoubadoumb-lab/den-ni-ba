@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { db } from "./firebase";
+import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 function CategoriePage() {

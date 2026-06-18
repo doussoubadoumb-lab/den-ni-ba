@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { db } from "./firebase";
+import { db } from "../firebase";
 import {
   collection,
   addDoc,
@@ -8,7 +8,7 @@ import {
   updateDoc,
   getDocs
 } from "firebase/firestore";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 import {
   signInWithEmailAndPassword
 } from "firebase/auth";
@@ -23,7 +23,7 @@ function AdminPage() {
   const [image, setImage] = useState("");
   const [idModification, setIdModification] = useState(null);
   const [taille, setTaille] = useState("");
-  
+  const [uploadEnCours, setUploadEnCours] = useState(false);
   const [produitsAdmin, setProduitsAdmin] = useState([]);
  const [motDePasse, setMotDePasse] = useState("");
 const [connecte, setConnecte] = useState(false);
@@ -195,6 +195,20 @@ const ajouterOuModifierProduit = async () => {
     </div>
   );
 }
+const uploaderImage = async (fichier) => {
+  setUploadEnCours(true);
+  const formData = new FormData();
+  formData.append("image", fichier);
+
+  const response = await fetch(
+    "https://api.imgbb.com/1/upload?key=b6bab2b280cc1c31ff29720ae8943d6d",
+    { method: "POST", body: formData }
+  );
+
+  const data = await response.json();
+  setImage(data.data.url);
+  setUploadEnCours(false);
+};
   return (
     <div className="App">
       <h1>🔐 Panneau Admin</h1>
@@ -242,12 +256,19 @@ const ajouterOuModifierProduit = async () => {
           onChange={(e) => setStock(e.target.value)}
         />
 
-     <input
-  type="text"
-  placeholder="Image du produit (/photo.jpg)"
-  value={image}
-  onChange={(e) => setImage(e.target.value)}
+  <input
+  type="file"
+  accept="image/*"
+  onChange={(e) => uploaderImage(e.target.files[0])}
 />
+{uploadEnCours && <p>⏳ Upload en cours...</p>}
+{image && (
+  <img
+    src={image}
+    alt="Aperçu"
+    style={{ width: "100%", borderRadius: "12px", marginTop: "10px" }}
+  />
+)}
         <input
   type="text"
   placeholder="Taille / pointure"

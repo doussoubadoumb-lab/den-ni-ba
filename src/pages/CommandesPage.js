@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { db } from "./firebase";
-import { auth } from "./firebase";
+import { db } from "../firebase";
+import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {
   collection,

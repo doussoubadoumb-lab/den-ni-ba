@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { db } from "./firebase";
+import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 function ProduitPage() {
   const { id } = useParams();

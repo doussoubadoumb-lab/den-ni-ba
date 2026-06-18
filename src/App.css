@@ -1,16 +1,16 @@
 body {
   margin: 0;
   padding: 0;
-  background: #1f2430;
+  background: #F8F6F2;
+  color: #2C3E50;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .App {
   text-align: center;
-  color: white;
+  color: #2C3E50;
   padding: 40px;
 }
-
 h1 {
   font-size: 42px;
   margin-bottom: 10px;
@@ -423,18 +423,24 @@ button:hover {
   color: #7c5cff;
 }
 .banner {
-  max-width: 1200px;
-  min-height: 420px;
+  width: 95%;
+  min-height: 650px;
+
   margin: 40px auto;
-  padding: 60px;
+  padding: 80px;
+
   border-radius: 25px;
 
   background-image:
-    linear-gradient(to right, rgba(44, 47, 99, 0.95), rgba(44, 47, 99, 0.45)),
+    linear-gradient(
+      to right,
+      rgba(44, 47, 99, 0.65),
+      rgba(44, 47, 99, 0.20)
+    ),
     url("./images/bebe.png");
 
   background-size: cover;
-  background-position: center right;
+  background-position: center center;
   background-repeat: no-repeat;
 
   display: flex;
@@ -447,11 +453,14 @@ button:hover {
 }
 
 .banner-text h1 {
-  font-size: 54px;
+  font-size: 72px;
+  line-height: 1.1;
+  color: white;
 }
 
 .banner-text p {
   font-size: 24px;
+  color: white;
 }
 
 .banner-image {
@@ -2188,4 +2197,45 @@ button:hover {
 
 .search-input::placeholder {
   color: #9ca3af;
+}
+/* ✅ NOUVEAU STYLE PRODUITS - DEN NI BA */
+
+.produit-card {
+  background: #ffffff !important;
+  color: #2C3E50 !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 22px !important;
+  padding: 18px !important;
+  width: 280px !important;
+  box-shadow: 0 10px 25px rgba(44, 62, 80, 0.12) !important;
+}
+
+.produit-card h3,
+.produit-card p,
+.produit-card a {
+  color: #2C3E50 !important;
+}
+
+.prix {
+  color: #4E5D94 !important;
+}
+
+.produit-card button:last-child {
+  background: #7DB9DE !important;
+  color: white !important;
+}
+
+.produit-card button:last-child:hover {
+  background: #5CA5D6 !important;
+}
+
+.badge-nouveau {
+  background: #A8C3A0 !important;
+}
+
+.badge-stock {
+  background: #A8C3A0 !important;
+}
+.toolbar-produits {
+  margin-top: 60px;
 }
