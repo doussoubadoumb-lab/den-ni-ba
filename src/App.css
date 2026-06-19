@@ -2378,3 +2378,15 @@ button:hover {
   .reseaux { gap: 10px; }
   .reseaux a { font-size: 13px; padding: 8px 12px; }
 }
+
+.btn-paiement {
+  display: block;
+  background: #ff7eb6;
+  color: white;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
